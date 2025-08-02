@@ -22,4 +22,4 @@ jobs:
                 context: .
                 file: ./docker/Dockerfile.backend
                 push: true
-                tags: 100xdevs/docker-deploy-monorepo:${{ github.sha }}
+                tags: fardeen26/docker-deploy-monorepo:${{ github.sha }}
