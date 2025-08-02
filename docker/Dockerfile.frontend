@@ -15,12 +15,17 @@ COPY ./apps/web ./apps/web
 # Install dependencies
 RUN bun install
 
-# Set environment variable after copying files
+# Set environment variable for build time (needed for Prisma generation)
 ENV DATABASE_URL=$DATABASE_URL
 
-# Generate Prisma client and build
+# Generate Prisma client
 RUN echo "DATABASE_URL is: $DATABASE_URL" && bun run db:generate
+
+# Build the application (DATABASE_URL will be available at runtime)
 RUN bun run build
+
+# Set runtime environment variable
+ENV DATABASE_URL=$DATABASE_URL
 
 EXPOSE 3000
 
