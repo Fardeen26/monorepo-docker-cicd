@@ -1,0 +1,39 @@
+# version: '3.8'
+
+# services:
+#   postgres:
+#     image: postgres
+#     ports:
+#       - 5432:5432
+#     environment:
+#       - POSTGRES_USER=${POSTGRES_USER}
+#       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#   backend:
+#     build:
+#       context: .
+#       dockerfile: docker/Dockerfile.backend
+#     ports:
+#       - 8080:8080
+#     environment:
+#       - DATABASE_URL=${DATABASE_URL}
+#   websocket: 
+#     build:
+#       context: .
+#       dockerfile: docker/Dockerfile.websocket
+#     ports:
+#       - 8081:8081
+#     environment:
+#       - DATABASE_URL=${DATABASE_URL}
+#   frontend:
+#     build:
+#       context: .
+#       dockerfile: docker/Dockerfile.frontend
+#     ports:
+#       - 3000:3000
+#     environment:
+#       - DATABASE_URL=${DATABASE_URL}
+#     depends_on:
+#       - backend
+#       - websocket
