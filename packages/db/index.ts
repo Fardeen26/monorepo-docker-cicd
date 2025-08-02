@@ -1,3 +1,3 @@
-import prisma from './src/lib/prisma.js'
+import { client } from './src/lib/prisma.js'
 
-export const client = prisma;
+export { client };

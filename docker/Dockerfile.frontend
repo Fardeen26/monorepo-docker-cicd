@@ -18,11 +18,11 @@ RUN bun install
 # Set environment variable for build time (needed for Prisma generation)
 ENV DATABASE_URL=$DATABASE_URL
 
-# Generate Prisma client
+# Generate Prisma client first
 RUN echo "DATABASE_URL is: $DATABASE_URL" && bun run db:generate
 
-# Build the application (DATABASE_URL will be available at runtime)
-RUN bun run build
+# Build the application with verbose output
+RUN echo "Starting build process..." && bun run build
 
 # Set runtime environment variable
 ENV DATABASE_URL=$DATABASE_URL
