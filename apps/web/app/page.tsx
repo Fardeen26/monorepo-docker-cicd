@@ -4,7 +4,7 @@ export default async function Home() {
   const users = await client.user.findMany();
 
   return (
-    <main className="flex p-10 gap-10 flex-col items-center justify-center h-screen">
+    <main className="flex p-10 gap-10 flex-col items-center justify-center h-fit">
       <h1>User App</h1>
       {
         users && users.map((user) => (
